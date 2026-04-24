@@ -46,7 +46,73 @@
         <li>Bitbucket</li>
         <li>Azure DevOps</li>
       </ul>
+    </section>
+    <section>
+      <h2>Módulo II - Conceitos e comandos básicos do Git</h2>
+  
+      <h3>Inicialização de um repositório</h3>
+      <p>Um repositório é o diretório principal que contém todos os arquivos do projeto e o histórico de todas as versões criadas.</p>
+      <p>Cria um novo repositório Git no diretório atual:</p>
+      <pre>git init</pre>
       
+      <h3>Comandos básicos: add, commit, status e log</h3>
+      
+      <p>Adiciona o arquivo à área de staging (começa a rastrear as alterações nesse arquivo):</p>
+      <pre>git add &lt;arquivo&gt;</pre>
+      
+      <h3>Configuração inicial</h3>
+      <p>Antes de poder fazer commits, o Git exige que você se identifique, para saber quem fez cada alteração no histórico.</p>
+      <pre>git config --global user.name "seu nome"<br>git config --global user.email "seu email"</pre>
+      
+      <p>Confirma as alterações no repositório e cria uma nova versão:</p>
+      <pre>git commit -m "mensagem curta que descreve o propósito das alterações"</pre>
+      
+      <p>Para saber quais arquivos foram modificados, quais foram adicionados à área de staging e quais não estão sendo rastreados:</p>
+      <pre>git status</pre>
+      
+      <p>Para ver o histórico de commits, quem modificou o quê, quando e por quê:</p>
+      <pre>git log</pre>
+      
+      <h3>Visualização e navegação no histórico de commits</h3>
+      <p>Para visualizar os detalhes de um commit específico:</p>
+      <pre>git show &lt;commit_hash&gt;</pre>
+      
+      <p>Para navegar entre commits apenas para consulta:</p>
+      <pre>git checkout &lt;commit_hash&gt;</pre>
+      
+      <h3>Desfazimento de alterações com revert, reset e checkout</h3>
+      <p>Para reverter as alterações de um commit específico e fazer um novo commit:</p>
+      <pre>git revert &lt;commit_hash&gt;</pre>
+      
+      <p>Descarta as alterações que ainda não foram adicionadas à área de staging com <i>git add</i>:</p>
+      <pre>git checkout &lt;arquivo&gt;</pre>
+      
+      <p>Volta para um commit específico e apaga todos os commits posteriores, mas mantém as alterações desses commits no diretório de trabalho:</p>
+      <pre>git reset &lt;commit_hash&gt;</pre>
+      
+      <h3>Criação e gerenciamento de branches</h3>
+      <p>Uma branch é uma linha independente de desenvolvimento. É como uma cópia do projeto em um momento específico, onde você pode alterar o código sem afetar a linha principal.</p>
+      
+      <h3>Comandos essenciais</h3>
+      <p>Criar uma nova branch:</p>
+      <pre>git branch &lt;new_branch&gt;</pre>
+      
+      <p>Ver todas as branches e identificar a branch atual:</p>
+      <pre>git branch</pre>
+      
+      <p>Alternar para outra branch:</p>
+      <pre>git checkout &lt;other_branch&gt;</pre>
+      <p>Ou também pode usar:</p>
+      <pre>git switch &lt;other_branch&gt;</pre>
+      
+      <p>Criar e alternar para a nova branch imediatamente:</p>
+      <pre>git checkout -b &lt;new_branch&gt;</pre>
+      
+      <p>Apagar uma determinada branch:</p>
+      <pre>git branch -D &lt;branch_name&gt;</pre>
+      
+      <p>Mesclar uma branch em outra. Você deve estar na branch que vai receber as novidades da branch secundária:</p>
+      <pre>git merge &lt;secondary_branch&gt;</pre>
     </section>
   </main>
   <script></script>
