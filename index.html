@@ -4,22 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Apontes de git e github</title>
+  <title>Anotações de Git e GitHub</title>
   <style>
     body {
       background-color: #262645;
       color: #ccc;
       font-size: 1.02rem;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 1.3rem;
     }
     pre {
-      ybackground-color: #eeeeee;
+      background-color: #1e1e35;
+      color: #82aaff;
       padding: 1rem;
       border-radius: 8px;
       border-left: solid 2px deepskyblue;
-      overflow: scroll;
+      overflow-x: auto;
     }
-    li{
+    li {
       padding-bottom: 0.5rem;
+    }
+    code {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
     }
   </style>
 </head>
@@ -64,22 +73,23 @@
         <li>Azure DevOps</li>
       </ul>
     </section>
+
     <section>
-      <h2>Módulo II - Conceitos e comandos básicos do Git</h2>
+      <h2>Módulo II - Conceitos e Comandos Básicos do Git</h2>
   
       <h3>Inicialização de um repositório</h3>
       <p>Um repositório é o diretório principal que contém todos os arquivos do projeto e o histórico de todas as versões criadas.</p>
       <p>Cria um novo repositório Git no diretório atual:</p>
       <pre>git init</pre>
       
-      <h3>Comandos básicos: add, commit, status e log</h3>
-      
-      <p>Adiciona o arquivo à área de staging (começa a rastrear as alterações nesse arquivo):</p>
-      <pre>git add &lt;arquivo&gt;</pre>
-      
       <h3>Configuração inicial</h3>
       <p>Antes de poder fazer commits, o Git exige que você se identifique, para saber quem fez cada alteração no histórico.</p>
-      <pre>git config --global user.name "seu nome"<br>git config --global user.email "seu email"</pre>
+      <pre>git config --global user.name "Seu Nome"
+git config --global user.email "seuemail@exemplo.com"</pre>
+
+      <h3>Comandos básicos: add, commit, status e log</h3>
+      <p>Adiciona o arquivo à área de staging (começa a rastrear as alterações nesse arquivo):</p>
+      <pre>git add &lt;arquivo&gt;</pre>
       
       <p>Confirma as alterações no repositório e cria uma nova versão:</p>
       <pre>git commit -m "mensagem curta que descreve o propósito das alterações"</pre>
@@ -101,8 +111,8 @@
       <p>Para reverter as alterações de um commit específico e fazer um novo commit:</p>
       <pre>git revert &lt;commit_hash&gt;</pre>
       
-      <p>Descarta as alterações que ainda não foram adicionadas à área de staging com <i>git add</i>:</p>
-      <pre>git checkout &lt;arquivo&gt;</pre>
+      <p>Descarta as alterações que ainda não foram adicionadas à área de staging com <code>git add</code>:</p>
+      <pre>git checkout -- &lt;arquivo&gt;</pre>
       
       <p>Volta para um commit específico e apaga todos os commits posteriores, mas mantém as alterações desses commits no diretório de trabalho:</p>
       <pre>git reset &lt;commit_hash&gt;</pre>
@@ -112,84 +122,109 @@
       
       <h3>Comandos essenciais</h3>
       <p>Criar uma nova branch:</p>
-      <pre>git branch &lt;new_branch&gt;</pre>
+      <pre>git branch &lt;nova_branch&gt;</pre>
       
       <p>Ver todas as branches e identificar a branch atual:</p>
       <pre>git branch</pre>
       
       <p>Alternar para outra branch:</p>
-      <pre>git checkout &lt;other_branch&gt;</pre>
+      <pre>git checkout &lt;outra_branch&gt;</pre>
       <p>Ou também pode usar:</p>
-      <pre>git switch &lt;other_branch&gt;</pre>
+      <pre>git switch &lt;outra_branch&gt;</pre>
       
       <p>Criar e alternar para a nova branch imediatamente:</p>
-      <pre>git checkout -b &lt;new_branch&gt;</pre>
+      <pre>git checkout -b &lt;nova_branch&gt;</pre>
       
       <p>Apagar uma determinada branch:</p>
-      <pre>git branch -D &lt;branch_name&gt;</pre>
+      <pre>git branch -D &lt;nome_da_branch&gt;</pre>
       
       <p>Mesclar uma branch em outra. Você deve estar na branch que vai receber as novidades da branch secundária:</p>
-      <pre>git merge &lt;secondary_branch&gt;</pre>
+      <pre>git merge &lt;branch_secundaria&gt;</pre>
     </section>
+
     <section>
       <h2>Módulo III - Trabalho com Repositórios Remotos no GitHub</h2>
 
-<h3>Configuração de um Repositório Remoto no GitHub via Linha de Comando</h3>
-<ol>
-  <li>Abra o terminal no diretório onde o seu projeto está localizado. Certifique-se de que o diretório já foi inicializado como um repositório Git:
-  <pre>git init</pre></li>
-  <li>Execute o comando para conectar o seu repositório local ao endereço remoto:
-  <pre>git remote add origin &lt;URL_do_repositório&gt;</pre></li>
-  <li>Substitua &lt;URL_do_repositório&gt; pelo link gerado no GitHub. Exemplo:
-  <pre>git remote add origin https://github.com/usuario/notas.git</pre></li>
-</ol>
+      <h3>Configuração de um Repositório Remoto no GitHub via Linha de Comando</h3>
+      <ol>
+        <li>Abra o terminal no diretório onde o seu projeto está localizado. Certifique-se de que o diretório já foi inicializado como um repositório Git:
+          <pre>git init</pre>
+        </li>
+        <li>Execute o comando para conectar o seu repositório local ao endereço remoto:
+          <pre>git remote add origin &lt;URL_do_repositório&gt;</pre>
+        </li>
+        <li>Substitua &lt;URL_do_repositório&gt; pelo link gerado no GitHub. Exemplo:
+          <pre>git remote add origin https://github.com/usuario/notas.git</pre>
+        </li>
+      </ol>
 
-<h3>Clonagem de um Repositório Existente no GitHub</h3>
-<p>Isso cria uma cópia completa, incluindo o histórico de versões.</p>
-<pre>git clone &lt;URL_do_repositório&gt;</pre>
-<p>Exemplo:</p>
-<pre>git clone https://github.com/usuario/projeto-exemplo.git</pre>
-<p>O Git criará automaticamente uma pasta com o nome do repositório e configurará o vínculo remoto.</p>
+      <h3>Clonagem de um Repositório Existente no GitHub</h3>
+      <p>Isso cria uma cópia completa, incluindo o histórico de versões.</p>
+      <pre>git clone &lt;URL_do_repositório&gt;</pre>
+      <p>Exemplo:</p>
+      <pre>git clone https://github.com/usuario/projeto-exemplo.git</pre>
+      <p>O Git criará automaticamente uma pasta com o nome do repositório e configurará o vínculo remoto.</p>
 
-<h3>Sincronização de Alterações com Push e Pull</h3>
-<ul>
-  <li><b>Push:</b> Envia seus commits locais para o GitHub.</li>
-  <li><b>Pull:</b> Traz as alterações do GitHub para sua máquina.</li>
-</ul>
+      <h3>Sincronização de Alterações com Push e Pull</h3>
+      <ul>
+        <li><b>Push:</b> Envia seus commits locais para o GitHub.</li>
+        <li><b>Pull:</b> Traz as alterações do GitHub para sua máquina.</li>
+      </ul>
 
-<h3>Sincronizando com Push</h3>
-<p>Depois de executar <code>git add</code> e <code>git commit</code>, envie para a branch <i>main</i> do servidor:</p>
-<pre>git push origin main</pre>
+      <h3>Sincronizando com Push</h3>
+      <p>Depois de executar <code>git add</code> e <code>git commit</code>, envie para a branch <i>main</i> do servidor:</p>
+      <pre>git push origin main</pre>
 
-<p>Para baixar e mesclar as novidades do servidor no seu código atual:</p>
-<pre>git pull origin main</pre>
+      <p>Para baixar e mesclar as novidades do servidor no seu código atual:</p>
+      <pre>git pull origin main</pre>
 
-<h3>Tópico Avançado: Resolução de Conflitos de Merge no GitHub</h3>
-<p>Conflitos ocorrem quando o Git não consegue decidir automaticamente qual versão de uma linha de código deve prevalecer (geralmente quando duas pessoas editam a mesma linha). Quando isso acontece durante um <code>pull</code>, o Git pausará o processo e solicitará que você abra o arquivo, escolha o código correto manualmente, salve e faça um novo commit.</p>
+      <h3>Tópico Avançado: Resolução de Conflitos de Merge no GitHub</h3>
+      <p>Conflitos ocorrem quando o Git não consegue decidir automaticamente qual versão de uma linha de código deve prevalecer (geralmente quando duas pessoas editam a mesma linha). Quando isso acontece durante um <code>pull</code>, o Git pausará o processo e solicitará que você abra o arquivo, escolha o código correto manualmente, salve e faça um novo commit.</p>
 
-<h3>Resolução de Conflitos de Merge pela Linha de Comando do Git</h3>
-<ol>
-  <li><b>Identificar o conflito</b><br>
-  Ao executar <code>git pull</code> ou <code>git merge</code>, se ocorrer um conflito, o Git indicará quais arquivos estão envolvidos. Abra o arquivo em conflito em um editor de texto. Você verá marcas que indicam as mudanças em disputa.</li>
+      <h3>Resolução de Conflitos de Merge pela Linha de Comando do Git</h3>
+      <ol>
+        <li><b>Identificar o conflito:</b> Ao executar <code>git pull</code> ou <code>git merge</code>, se ocorrer um conflito, o Git indicará quais arquivos estão envolvidos. Abra o arquivo em conflito em um editor de texto. Você verá marcas que indicam as mudanças em disputa.</li>
 
-  <li><b>Entender as marcas de conflito</b><br>
-  As linhas entre <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> e <code>=======</code> representam as alterações atuais no seu repositório local (branch atual), enquanto as linhas entre <code>=======</code> e <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; nome-da-branch</code> representam as alterações conflitantes da outra branch.</li>
+        <li><b>Entender as marcas de conflito:</b> As linhas entre <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> e <code>=======</code> representam as alterações atuais no seu repositório local (branch atual), enquanto as linhas entre <code>=======</code> e <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; nome-da-branch</code> representam as alterações conflitantes da outra branch.</li>
 
-  <li><b>Resolver o conflito</b><br>
-  Edite o arquivo para resolver as diferenças. Mantenha apenas as partes necessárias das alterações e remova manualmente as marcas de conflito (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>).</li>
+        <li><b>Resolver o conflito:</b> Edite o arquivo para resolver as diferenças. Mantenha apenas as partes necessárias das alterações e remova manualmente as marcas de conflito (<code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code>).</li>
 
-  <li><b>Preparar o arquivo</b><br>
-  Após resolver os conflitos, salve o arquivo e execute <code>git add</code> para adicioná-lo ao próximo commit.</li>
+        <li><b>Preparar o arquivo:</b> Após resolver os conflitos, salve o arquivo e execute <code>git add</code> para adicioná-lo ao próximo commit.</li>
 
-  <li><b>Confirmar as alterações</b><br>
-  Faça o commit das alterações que resolvem o conflito usando <code>git commit</code>. O Git adicionará automaticamente uma mensagem de commit padrão indicando a resolução do conflito.</li>
+        <li><b>Confirmar as alterações:</b> Faça o commit das alterações que resolvem o conflito usando <code>git commit</code>. O Git adicionará automaticamente uma mensagem de commit padrão indicando a resolução do conflito.</li>
 
-  <li><b>Enviar as alterações</b><br>
-  Finalmente, execute <code>git push</code> para enviar as alterações resolvidas ao repositório remoto.</li>
-</ol>
+        <li><b>Enviar as alterações:</b> Finalmente, execute <code>git push</code> para enviar as alterações resolvidas ao repositório remoto.</li>
+      </ol>
     </section>
-    
+
+    <section>
+      <h2>Módulo IV – Gitflow</h2>
+      <p>O Gitflow é um modelo de ramificação (branching model) que define um conjunto de regras e convenções para organizar o desenvolvimento de software usando Git.</p>
+      
+      <h3>1. Branches de Desenvolvimento (develop)</h3>
+      <p>A branch <code>develop</code> é a principal branch de desenvolvimento. É nela que o trabalho de desenvolvimento contínuo é realizado. As novas funcionalidades e correções são integradas à branch <code>develop</code> antes de serem preparadas para um lançamento.</p>
+      
+      <h3>2. Branches de Recursos (features)</h3>
+      <p>As branches de recursos (feature branches) são criadas a partir da branch <code>develop</code> para o desenvolvimento de novas funcionalidades específicas. Cada nova funcionalidade é trabalhada em uma branch separada, permitindo que os desenvolvedores trabalhem de forma isolada.</p>
+      <p>Quando a funcionalidade está completa e testada, a branch de recurso é mesclada de volta à branch <code>develop</code>.</p>
+
+      <h3>3. Branches de Lançamento (release)</h3>
+      <p>As branches de lançamento (release branches) são criadas a partir da branch <code>develop</code> quando o projeto está pronto para um novo lançamento. Elas são usadas para preparar o código para a produção, realizando ajustes finais, testes e correções de última hora.</p>
+      <p>Quando o lançamento está pronto, a branch de lançamento é mesclada tanto na branch <code>main</code> (ou <code>master</code>) quanto na branch <code>develop</code>.</p>
+      
+      <h3>4. Branches de Correções Rápidas (hotfix)</h3>
+      <p>As branches de correções rápidas (hotfix branches) são criadas a partir da branch <code>main</code> (ou <code>master</code>) para corrigir problemas críticos encontrados em produção. Elas permitem que os desenvolvedores façam correções urgentes sem interferir no trabalho de desenvolvimento contínuo na branch <code>develop</code>.</p>
+      <p>Após a correção, a branch <code>hotfix</code> é mesclada tanto na branch <code>main</code> quanto na branch <code>develop</code>.</p>
+      
+      <h3>5. Fluxo Geral do Gitflow</h3>
+      <ol>
+        <li>O desenvolvimento contínuo ocorre na branch <code>develop</code>.</li>
+        <li>Novas funcionalidades são desenvolvidas em branches de recursos separadas e, quando concluídas, são mescladas na <code>develop</code>.</li>
+        <li>Quando o projeto está pronto para um lançamento, uma branch de lançamento é criada a partir da <code>develop</code>.</li>
+        <li>Após os testes e ajustes finais, a branch de lançamento é mesclada na <code>main</code> e na <code>develop</code>.</li>
+        <li>Se um problema crítico for encontrado em produção, uma branch de correção rápida é criada a partir da <code>main</code>, a correção é aplicada e a branch é mesclada tanto na <code>main</code> quanto na <code>develop</code>.</li>
+      </ol>
+    </section>
   </main>
-  <script></script>
 </body>
 </html>
